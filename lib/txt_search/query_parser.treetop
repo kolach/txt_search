@@ -1,0 +1,69 @@
+grammar Query
+
+  rule query
+    (expression / space)* <QueryNode>
+  end
+
+  rule expression
+    compound_expression / operand
+  end
+
+  rule compound_expression
+    operand space operator space expression <CompoundExpressionNode>
+  end
+
+  rule operand
+    ( group
+    / wildcard
+    / token_list
+    / token
+    / sentence
+    )
+  end
+
+  rule group
+    '(' expression ')' <GroupNode>
+  end
+
+  rule operator
+    and / or
+  end
+
+  rule word
+    [a-zA-Z0-9_]+
+  end
+
+  rule token_list
+    token (space token)+ <TokenListNode>
+  end
+
+  rule tokens
+    token space token (space token)* <TokensNode>
+  end
+
+  rule token
+    !operator '-'? word <TokenNode>
+  end
+
+  rule wildcard
+    word '*' <WildcardNode>
+  end
+
+  rule sentence
+    '"' ( !'"' . )* '"' <SentenceNode>
+  end
+
+  rule and
+    'AND' <OperatorNode>
+  end
+
+  rule or
+    'OR' <OperatorNode>
+  end
+
+  rule space
+    [\s]+
+  end
+
+
+end
