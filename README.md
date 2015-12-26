@@ -1,4 +1,4 @@
-# TxtSearch
+# TxtSearch (1st Task: Query Language Evaluator)
 
 TxtSearch is a gem which executes the following subset of Lucene query language  (used in Solr and Elasticsearch) and correctly
 evaluates and test the query.
@@ -84,7 +84,7 @@ TxtSearch::Search.new(query: '(bananas OR mangos) AND frozen').test(str) #=> fal
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/txt_search.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kolach/txt_search.
 
 
 ## License
