@@ -60,7 +60,7 @@ module Query
 
   class WildcardNode < Treetop::Runtime::SyntaxNode
     def test(text)
-      token = text_value[0..-1]
+      token = text_value[0..-2]
       return !text.match(/\b#{token}/).nil?
     end
   end
